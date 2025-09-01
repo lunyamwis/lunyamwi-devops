@@ -108,13 +108,7 @@ services:
     env_file:
       - .env
 
-  salesrep:
-    image: lunyamwimages/boostedchatamqp
-    env_file:
-      - .env
-    networks:
-      - booksy
-
+  
   message-broker:
     image: rabbitmq:3-management-alpine
     container_name: message-broker
