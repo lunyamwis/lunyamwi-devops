@@ -419,9 +419,3 @@ volumes:
   redisdata:
 
   postgres-etl-data:
-
-networks:
-
-  booksy:
-    external: true
-    name: booksy-talk
