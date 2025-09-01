@@ -1,0 +1,5 @@
+django
+djangorestframework
+google-api-python-client
+oauth2client
+paramiko
