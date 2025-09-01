@@ -13,8 +13,7 @@ services:
     env_file:
       - .env
     entrypoint: ["/bin/bash", "+x", "/entrypoint.sh"]
-    networks:
-      - booksy
+    
 
   postgres:
     image: postgres:latest
@@ -29,8 +28,7 @@ services:
       - /opt/postgres-data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-    networks:
-      - booksy
+    
 
   postgres-promptfactory:
     image: postgres:latest
@@ -45,8 +43,7 @@ services:
       - /opt/postgres-promptfactory-data:/var/lib/postgresql/data
     ports:
       - "5434:5434"
-    networks:
-      - booksy
+    
 
   client:
     image: lunyamwimages/boostedchatui-dev:latest
@@ -64,8 +61,7 @@ services:
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
       - ./dhparam:/etc/ssl/certs
-    networks:
-      - booksy
+    
 
   certbot:
     image: certbot/certbot
@@ -79,8 +75,7 @@ services:
     depends_on:
       - client
     command: /certbot-entrypoint.sh
-    networks:
-      - booksy
+    
 
   mqtt:
     image: lunyamwimages/boostedchatmqtt-dev:latest
@@ -93,8 +88,7 @@ services:
       - ../mqtt-logs:/usr/src/app/logs
     env_file:
       - .env
-    networks:
-      - booksy
+    
 
   prompt:
     image: lunyamwimages/promptfactory-dev:latest
@@ -103,8 +97,7 @@ services:
       - api
     ports:
       - "8001:8001"
-    networks:
-      - booksy
+    
     env_file:
       - .env
 
@@ -122,8 +115,7 @@ services:
       - rabbitmq-data:/var/lib/rabbitmq/
       - rabbitmq-log:/var/log/rabbitmq
     restart: always
-    networks:
-      - booksy
+    
 
   redis1:
     image: redis:latest
@@ -140,8 +132,7 @@ services:
       - "6380:6379"
     volumes:
       - redisdata1:/data
-    networks:
-      - booksy
+    
 
   web:
     restart: always
@@ -159,8 +150,7 @@ services:
       - ./logs:/opt/airflow/logs
       - ./config:/opt/airflow/config
       - ./plugins:/opt/airflow/plugins
-    networks:
-      - booksy
+    
     env_file:
       - .env
     environment:
@@ -182,8 +172,7 @@ services:
       - "5433"
     ports:
       - "5433:5433"
-    networks:
-      - booksy
+    
 
   redis:
     image: redis:latest
@@ -200,8 +189,7 @@ services:
       - "6379:6379"
     volumes:
       - redisdata:/data
-    networks:
-      - booksy
+    
 
   airflow-webserver:
     image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:2.8.1}
@@ -218,8 +206,7 @@ services:
     depends_on:
       - redis
       - postgresetl
-    networks:
-      - booksy
+    
     environment:
       AIRFLOW__CORE__EXECUTOR: CeleryExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://postgres:${POSTGRES_PASSWORD_ETL}@postgresetl:5433/etl
@@ -247,8 +234,7 @@ services:
     depends_on:
       - redis
       - postgresetl
-    networks:
-      - booksy
+    
     environment:
       AIRFLOW__CORE__EXECUTOR: CeleryExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://postgres:${POSTGRES_PASSWORD_ETL}@postgresetl:5433/etl
@@ -276,8 +262,7 @@ services:
       timeout: 10s
       retries: 5
       start_period: 30s
-    networks:
-      - booksy
+    
 
   airflow-triggerer:
     image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:2.8.1}
@@ -292,8 +277,7 @@ services:
       timeout: 10s
       retries: 5
       start_period: 30s
-    networks:
-      - booksy
+    
     environment:
       AIRFLOW__CORE__EXECUTOR: CeleryExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://postgres:${POSTGRES_PASSWORD_ETL}@postgresetl:5433/etl
@@ -360,8 +344,7 @@ services:
     user: "0:0"
     volumes:
       - ${AIRFLOW_PROJ_DIR:-.}:/sources
-    networks:
-      - booksy
+    
 
   airflow-cli:
     image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:2.8.1}
@@ -373,8 +356,7 @@ services:
       - bash
       - -c
       - airflow
-    networks:
-      - booksy
+    
 
   flower:
     image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:2.8.1}
@@ -393,8 +375,7 @@ services:
     depends_on:
       - redis
       - postgresetl
-    networks:
-      - booksy
+    
 
 volumes:
 
