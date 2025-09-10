@@ -11,7 +11,7 @@
 #certbot certonly -d api.lunyamwi.org --non-interactive
 # certbot certonly --webroot --webroot-path=/usr/share/nginx/html --email lutherlunyamwi@gmail.org --agree-tos --no-eff-email --force-renewal -d api.lunyamwi.org
 # certbot certonly --webroot --webroot-path=/usr/share/nginx/html --email lutherlunyamwi@gmail.org --agree-tos --no-eff-email --force-renewal -d lunyamwi.org
-certbot certonly --manual --preferred-challenges=dns -d "lunyamwi.org" -d "*.lunyamwi.org"
+certbot certonly --manual --preferred-challenges dns -d '*.lunyamwi.org' -d lunyamwi.org --non-interactive --agree-tos
 # certbot certonly --webroot --webroot-path=/usr/share/nginx/html --email lutherlunyamwi@gmail.org --agree-tos --no-eff-email --force-renewal -d mqtt.lunyamwi.org
 # certbot certonly --webroot --webroot-path=/usr/share/nginx/html --email lutherlunyamwi@gmail.org --agree-tos --no-eff-email --force-renewal -d demo.lunyamwi.org
 # certbot certonly --webroot --webroot-path=/usr/share/nginx/html --email lutherlunyamwi@gmail.org --agree-tos --no-eff-email --force-renewal -d airflow.lunyamwi.org
