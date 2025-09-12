@@ -71,7 +71,7 @@ services:
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
       - web-root:/usr/share/nginx/html
-      - ./certbot-entrypoint.sh:/certbot-entrypoint.sh # Mounting the scrip
+      - ./scripts/certbot-entrypoint.sh:/certbot-entrypoint.sh # Mounting the script
       - /opt/cloudflare:/etc/letsencrypt/cloudflare.ini:ro
     entrypoint: ["/bin/sh", "-c"]
     depends_on:
