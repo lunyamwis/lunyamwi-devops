@@ -214,16 +214,17 @@ services:
       - ./config:/opt/airflow/config
       - ./plugins:/opt/airflow/plugins
     environment:
-      AIRFLOW__CORE__EXECUTOR: CeleryExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://postgres:${POSTGRES_PASSWORD_ETL}@postgresetl:5433/etl
       AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://postgres:${POSTGRES_PASSWORD_ETL}@postgresetl:5433/etl
       AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
+      AIRFLOW__CORE__EXECUTOR: CeleryExecutor
       AIRFLOW__CORE__FERNET_KEY: ''
       AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
       AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
       AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
-      AIRFLOW__SCHEDULER__ENABLE_HEALTH_CHECK: 'true'
       AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-apiserver:8080/execution/'
+      AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
+      HOSTNAME: airflow-api-server
       DEBUG: "true"
     env_file:
       - .env
@@ -247,15 +248,18 @@ services:
       - ./config:/opt/airflow/config
       - ./plugins:/opt/airflow/plugins
     environment:
-      AIRFLOW__CORE__EXECUTOR: CeleryExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://postgres:${POSTGRES_PASSWORD_ETL}@postgresetl:5433/etl
       AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://postgres:${POSTGRES_PASSWORD_ETL}@postgresetl:5433/etl
       AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
+      AIRFLOW__CORE__EXECUTOR: CeleryExecutor
+      AIRFLOW__CORE__FERNET_KEY: ''
       AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
       AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
       AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
-      AIRFLOW__SCHEDULER__ENABLE_HEALTH_CHECK: 'true'
       AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-apiserver:8080/execution/'
+      AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
+      HOSTNAME: airflow-api-server
+      
     env_file:
       - .env
 
@@ -278,11 +282,17 @@ services:
       - ./config:/opt/airflow/config
       - ./plugins:/opt/airflow/plugins
     environment:
-      AIRFLOW__CORE__EXECUTOR: CeleryExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://postgres:${POSTGRES_PASSWORD_ETL}@postgresetl:5433/etl
       AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://postgres:${POSTGRES_PASSWORD_ETL}@postgresetl:5433/etl
       AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
+      AIRFLOW__CORE__EXECUTOR: CeleryExecutor
+      AIRFLOW__CORE__FERNET_KEY: ''
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+      AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
       AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-apiserver:8080/execution/'
+      AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
+      HOSTNAME: airflow-api-server
 
   airflow-worker:
     image: ${AIRFLOW_IMAGE_NAME:-lunyamwi-airflow:custom}
@@ -297,11 +307,17 @@ services:
       - ./config:/opt/airflow/config
       - ./plugins:/opt/airflow/plugins
     environment:
-      AIRFLOW__CORE__EXECUTOR: CeleryExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://postgres:${POSTGRES_PASSWORD_ETL}@postgresetl:5433/etl
       AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://postgres:${POSTGRES_PASSWORD_ETL}@postgresetl:5433/etl
       AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
+      AIRFLOW__CORE__EXECUTOR: CeleryExecutor
+      AIRFLOW__CORE__FERNET_KEY: ''
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+      AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
       AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-apiserver:8080/execution/'
+      AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
+      HOSTNAME: airflow-api-server
       DUMB_INIT_SETSID: "0"
     healthcheck:
       test:
@@ -333,10 +349,17 @@ services:
       - ./plugins:/opt/airflow/plugins
 
     environment:
-      AIRFLOW__CORE__EXECUTOR: CeleryExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://postgres:${POSTGRES_PASSWORD_ETL}@postgresetl:5433/etl
       AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://postgres:${POSTGRES_PASSWORD_ETL}@postgresetl:5433/etl
       AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
+      AIRFLOW__CORE__EXECUTOR: CeleryExecutor
+      AIRFLOW__CORE__FERNET_KEY: ''
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+      AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
+      AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-apiserver:8080/execution/'
+      AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
+      HOSTNAME: airflow-api-server
 
   airflow-init:
     image: ${AIRFLOW_IMAGE_NAME:-lunyamwi-airflow:custom}
@@ -399,11 +422,13 @@ services:
       AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://postgres:${POSTGRES_PASSWORD_ETL}@postgresetl:5433/etl
       AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
       AIRFLOW__CORE__EXECUTOR: CeleryExecutor
-      AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-apiserver:8080/execution/'
       AIRFLOW__CORE__FERNET_KEY: ''
       AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
       AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
       AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
+      AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-apiserver:8080/execution/'
+      AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
+      HOSTNAME: airflow-api-server
       
     env_file:
       - .env
@@ -435,11 +460,14 @@ services:
       AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://postgres:${POSTGRES_PASSWORD_ETL}@postgresetl:5433/etl
       AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
       AIRFLOW__CORE__EXECUTOR: CeleryExecutor
-      AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-apiserver:8080/execution/'
       AIRFLOW__CORE__FERNET_KEY: ''
       AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
       AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
       AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
+      AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-apiserver:8080/execution/'
+      AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
+      HOSTNAME: airflow-api-server
+
     volumes:
       - ${AIRFLOW_PROJ_DIR:-.}:/sources
       - ./dags:/opt/airflow/dags
@@ -477,11 +505,14 @@ services:
       AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://postgres:${POSTGRES_PASSWORD_ETL}@postgresetl:5433/etl
       AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
       AIRFLOW__CORE__EXECUTOR: CeleryExecutor
-      AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-apiserver:8080/execution/'
       AIRFLOW__CORE__FERNET_KEY: ''
       AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
       AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
       AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
+      AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-apiserver:8080/execution/'
+      AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
+      HOSTNAME: airflow-api-server
+
     volumes:
       - ${AIRFLOW_PROJ_DIR:-.}:/sources
       - ./dags:/opt/airflow/dags
