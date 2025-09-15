@@ -9,10 +9,10 @@
 #[ -f /etc/letsencrypt/live/mqtt.lunyamwi.org/privkey.pem ] || certbot certonly --webroot --webroot-path=/usr/share/nginx/html --email lutherlunyamwi@gmail.org --agree-tos --no-eff-email --force-renewal -d mqtt.lunyamwi.org
 
 #certbot certonly -d api.lunyamwi.org --non-interactive
-certbot certonly --webroot --webroot-path=/usr/share/nginx/html --email lutherlunyamwi@gmail.org --agree-tos --no-eff-email --force-renewal -d api.lunyamwi.org
-certbot certonly --webroot --webroot-path=/usr/share/nginx/html --email lutherlunyamwi@gmail.org --agree-tos --no-eff-email --force-renewal -d mqtt.lunyamwi.org
-certbot certonly --webroot --webroot-path=/usr/share/nginx/html --email lutherlunyamwi@gmail.org --agree-tos --no-eff-email --force-renewal -d demo.lunyamwi.org
-certbot certonly --webroot --webroot-path=/usr/share/nginx/html --email lutherlunyamwi@gmail.org --agree-tos --no-eff-email --force-renewal -d airflow.lunyamwi.org
+# certbot certonly --webroot --webroot-path=/usr/share/nginx/html --email lutherlunyamwi@gmail.org --agree-tos --no-eff-email --force-renewal -d api.lunyamwi.org
+# certbot certonly --webroot --webroot-path=/usr/share/nginx/html --email lutherlunyamwi@gmail.org --agree-tos --no-eff-email --force-renewal -d mqtt.lunyamwi.org
+# certbot certonly --webroot --webroot-path=/usr/share/nginx/html --email lutherlunyamwi@gmail.org --agree-tos --no-eff-email --force-renewal -d demo.lunyamwi.org
+# certbot certonly --webroot --webroot-path=/usr/share/nginx/html --email lutherlunyamwi@gmail.org --agree-tos --no-eff-email --force-renewal -d airflow.lunyamwi.org
 certbot certonly \
   --dns-cloudflare \
   --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.ini/cloudflare.ini \
