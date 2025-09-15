@@ -226,7 +226,6 @@ services:
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
       AIRFLOW__API__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
       AIRFLOW__WEBSERVER__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
-      AIRFLOW__CORE__BASE_URL: http://airflow-api-server:8080
       AIRFLOW__API__BASE_URL: http://airflow-api-server:8080
       AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
       DEBUG: "true"
@@ -264,7 +263,6 @@ services:
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
       AIRFLOW__API__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
       AIRFLOW__WEBSERVER__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
-      AIRFLOW__CORE__BASE_URL: http://airflow-api-server:8080
       AIRFLOW__API__BASE_URL: http://airflow-api-server:8080
       AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
 
@@ -302,7 +300,6 @@ services:
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
       AIRFLOW__API__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
       AIRFLOW__WEBSERVER__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
-      AIRFLOW__CORE__BASE_URL: http://airflow-api-server:8080
       AIRFLOW__API__BASE_URL: http://airflow-api-server:8080
       AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
 
@@ -331,7 +328,6 @@ services:
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
       AIRFLOW__API__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
       AIRFLOW__WEBSERVER__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
-      AIRFLOW__CORE__BASE_URL: http://airflow-api-server:8080
       AIRFLOW__API__BASE_URL: http://airflow-api-server:8080
       AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
       DUMB_INIT_SETSID: "0"
@@ -377,7 +373,6 @@ services:
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
       AIRFLOW__API__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
       AIRFLOW__WEBSERVER__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
-      AIRFLOW__CORE__BASE_URL: http://airflow-api-server:8080
       AIRFLOW__API__BASE_URL: http://airflow-api-server:8080
       AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
 
@@ -450,8 +445,6 @@ services:
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
       AIRFLOW__API__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
       AIRFLOW__WEBSERVER__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
-      AIRFLOW__CORE__BASE_URL: http://airflow-api-server:8080
-      AIRFLOW__API__BASE_URL: http://airflow-api-server:8080
       AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
       
       
@@ -493,8 +486,6 @@ services:
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
       AIRFLOW__API__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
       AIRFLOW__WEBSERVER__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
-      AIRFLOW__CORE__BASE_URL: http://airflow-api-server:8080
-      AIRFLOW__API__BASE_URL: http://airflow-api-server:8080
       AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
 
     volumes:
@@ -543,8 +534,7 @@ services:
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
       AIRFLOW__API__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
       AIRFLOW__WEBSERVER__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
-      AIRFLOW__CORE__BASE_URL: http://airflow-api-server:8080
-      AIRFLOW__API__BASE_URL: http://airflow-api-server:8080
+      
 
     volumes:
       - ${AIRFLOW_PROJ_DIR:-.}:/sources
