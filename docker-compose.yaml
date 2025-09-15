@@ -225,6 +225,7 @@ services:
       AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-api-server:8080/execution/'
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
       AIRFLOW__API__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
+      AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
       DEBUG: "true"
     env_file:
       - .env
@@ -259,6 +260,7 @@ services:
       AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-api-server:8080/execution/'
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
       AIRFLOW__API__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
+      AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
 
     env_file:
       - .env
@@ -293,6 +295,7 @@ services:
       AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-api-server:8080/execution/'
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
       AIRFLOW__API__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
+      AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
 
   airflow-worker:
     image: ${AIRFLOW_IMAGE_NAME:-lunyamwi-airflow:custom}
@@ -318,6 +321,7 @@ services:
       AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-api-server:8080/execution/'
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
       AIRFLOW__API__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
+      AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
       DUMB_INIT_SETSID: "0"
     healthcheck:
       test:
@@ -360,6 +364,7 @@ services:
       AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-api-server:8080/execution/'
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
       AIRFLOW__API__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
+      AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
 
   airflow-init:
     image: ${AIRFLOW_IMAGE_NAME:-lunyamwi-airflow:custom}
@@ -429,6 +434,7 @@ services:
       AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-api-server:8080/execution/'
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
       AIRFLOW__API__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
+      AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
       
       
     env_file:
@@ -468,6 +474,7 @@ services:
       AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-api-server:8080/execution/'
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
       AIRFLOW__API__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
+      AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
 
     volumes:
       - ${AIRFLOW_PROJ_DIR:-.}:/sources
@@ -511,6 +518,7 @@ services:
       AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
       AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
       AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-api-server:8080/execution/'
+      AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
       AIRFLOW__API__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
 
