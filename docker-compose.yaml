@@ -300,7 +300,7 @@ services:
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
       AIRFLOW__API__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
       AIRFLOW__WEBSERVER__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
-      AIRFLOW__API__BASE_URL: http://airflow-api-server:8080
+      # AIRFLOW__API__BASE_URL: http://airflow-api-server:8080
       AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
 
   airflow-worker:
