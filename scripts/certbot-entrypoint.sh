@@ -22,6 +22,6 @@ certbot certonly \
   --expand \
   --non-interactive \
   --agree-tos \
-  --email lutherlunyamwi@gmail.com \
+  --email lutherlunyamwi@gmail.com 
 echo "done..."
 ## comments
