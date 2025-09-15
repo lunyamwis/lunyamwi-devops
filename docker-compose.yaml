@@ -227,8 +227,8 @@ services:
       AIRFLOW__API__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
       AIRFLOW__WEBSERVER__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
       AIRFLOW__API__BASE_URL: https://airflow.lunyamwi.org
-      # AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
-      AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.jwt
+      AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
+      # AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.jwt
       DEBUG: "true"
     env_file:
       - .env
@@ -265,8 +265,8 @@ services:
       AIRFLOW__API__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
       AIRFLOW__WEBSERVER__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
       # AIRFLOW__API__BASE_URL: https://airflow.lunyamwi.org
-      # AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
-      AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.jwt
+      AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
+      # AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.jwt
 
     env_file:
       - .env
@@ -303,8 +303,8 @@ services:
       AIRFLOW__API__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
       AIRFLOW__WEBSERVER__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
       # AIRFLOW__API__BASE_URL: https://airflow.lunyamwi.org
-      # AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
-      AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.jwt
+      AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
+      # AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.jwt
 
   airflow-worker:
     image: ${AIRFLOW_IMAGE_NAME:-lunyamwi-airflow:custom}
@@ -332,8 +332,8 @@ services:
       AIRFLOW__API__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
       AIRFLOW__WEBSERVER__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
       AIRFLOW__API__BASE_URL: https://airflow.lunyamwi.org
-      # AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
-      AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.jwt
+      AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
+      # AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.jwt
       DUMB_INIT_SETSID: "0"
     healthcheck:
       test:
@@ -378,8 +378,8 @@ services:
       AIRFLOW__API__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
       AIRFLOW__WEBSERVER__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
       AIRFLOW__API__BASE_URL: https://airflow.lunyamwi.org
-      # AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
-      AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.jwt
+      AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
+      # AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.jwt
 
   airflow-init:
     image: ${AIRFLOW_IMAGE_NAME:-lunyamwi-airflow:custom}
@@ -450,8 +450,8 @@ services:
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
       AIRFLOW__API__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
       AIRFLOW__WEBSERVER__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
-      # AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
-      AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.jwt
+      AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
+      # AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.jwt
 
     env_file:
       - .env
@@ -491,8 +491,8 @@ services:
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
       AIRFLOW__API__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
       AIRFLOW__WEBSERVER__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
-      # AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
-      AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.jwt
+      AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
+      # AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.jwt
 
     volumes:
       - ${AIRFLOW_PROJ_DIR:-.}:/sources
@@ -536,8 +536,8 @@ services:
       AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
       AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
       AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-api-server:8080/execution/'
-      # AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
-      AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.jwt
+      AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.default
+      # AIRFLOW__API__AUTH_BACKEND: airflow.api.auth.backend.jwt
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
       AIRFLOW__API__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
       AIRFLOW__WEBSERVER__SECRET_KEY: 545b8354dbaf8b0d5f7c37be3ffd8f60
