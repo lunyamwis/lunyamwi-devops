@@ -224,7 +224,7 @@ services:
       AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
       AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-api-server:8080/execution/'
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
-      AIRFLOW__CORE__SECRET_KEY: my-very-strong-secret-key
+      AIRFLOW__WEBSERVER__SECRET_KEY: supersecretkey
       DEBUG: "true"
     env_file:
       - .env
@@ -258,7 +258,7 @@ services:
       AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
       AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-api-server:8080/execution/'
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
-      AIRFLOW__CORE__SECRET_KEY: my-very-strong-secret-key
+      AIRFLOW__WEBSERVER__SECRET_KEY: supersecretkey
 
     env_file:
       - .env
@@ -292,7 +292,7 @@ services:
       AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
       AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-api-server:8080/execution/'
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
-      AIRFLOW__CORE__SECRET_KEY: my-very-strong-secret-key
+      AIRFLOW__WEBSERVER__SECRET_KEY: supersecretkey
 
   airflow-worker:
     image: ${AIRFLOW_IMAGE_NAME:-lunyamwi-airflow:custom}
@@ -317,7 +317,7 @@ services:
       AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
       AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-api-server:8080/execution/'
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
-      AIRFLOW__CORE__SECRET_KEY: my-very-strong-secret-key
+      AIRFLOW__WEBSERVER__SECRET_KEY: supersecretkey
       DUMB_INIT_SETSID: "0"
     healthcheck:
       test:
@@ -359,7 +359,7 @@ services:
       AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
       AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-api-server:8080/execution/'
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
-      AIRFLOW__CORE__SECRET_KEY: my-very-strong-secret-key
+      AIRFLOW__WEBSERVER__SECRET_KEY: supersecretkey
 
   airflow-init:
     image: ${AIRFLOW_IMAGE_NAME:-lunyamwi-airflow:custom}
@@ -428,7 +428,7 @@ services:
       AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
       AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-api-server:8080/execution/'
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
-      AIRFLOW__CORE__SECRET_KEY: my-very-strong-secret-key
+      AIRFLOW__WEBSERVER__SECRET_KEY: supersecretkey
       
       
     env_file:
@@ -467,7 +467,7 @@ services:
       AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
       AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-api-server:8080/execution/'
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
-      AIRFLOW__CORE__SECRET_KEY: my-very-strong-secret-key
+      AIRFLOW__WEBSERVER__SECRET_KEY: supersecretkey
 
     volumes:
       - ${AIRFLOW_PROJ_DIR:-.}:/sources
@@ -512,7 +512,7 @@ services:
       AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
       AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-api-server:8080/execution/'
       AIRFLOW__WEBSERVER_BASE_URL: 'http://airflow-api-server:8080'
-      AIRFLOW__CORE__SECRET_KEY: my-very-strong-secret-key
+      AIRFLOW__WEBSERVER__SECRET_KEY: supersecretkey
 
     volumes:
       - ${AIRFLOW_PROJ_DIR:-.}:/sources
