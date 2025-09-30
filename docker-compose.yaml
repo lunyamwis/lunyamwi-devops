@@ -56,6 +56,9 @@ services:
       - "80:80"
       - "443:443"
     volumes:
+      - web-static:/usr/src/app/static
+      - web-media:/usr/src/app/media
+      - web-django:/usr/src/app
       - web-root:/usr/share/nginx/html
       - ./nginx-conf/:/etc/nginx/conf.d
       - certbot-etc:/etc/letsencrypt
@@ -148,6 +151,7 @@ services:
     volumes:
       - web-django:/usr/src/app
       - web-static:/usr/src/app/static
+      - web-media:/usr/src/app/media
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
       - ./config:/opt/airflow/config
@@ -592,6 +596,8 @@ services:
 volumes:
 
   web-django:
+  
+  web-media:
 
   web-static:
 
